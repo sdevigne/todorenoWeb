@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, ButtonGroup } from "react-bootstrap";
 
 class Project extends Component {
   render() {
@@ -13,7 +13,11 @@ class Project extends Component {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">Afficher</Button>
+          <ButtonGroup>
+            <Button variant="secondary">Modifier</Button>
+            <Button variant="secondary">Archiver</Button>
+          </ButtonGroup>
         </Card.Body>
       </Card>
     );
