@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Offcanvas } from "react-bootstrap";
+import { Button, Offcanvas, ListGroup, Accordion } from "react-bootstrap";
 
 const Project = (props) => {
   const [project, setProject] = useState(props.project);
@@ -8,10 +8,14 @@ const Project = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const getTodos = () => {
+    handleClose();
+  };
+
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>
-        Voir les pièces...
+        Voir les localisations et les pièces...
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
@@ -19,11 +23,13 @@ const Project = (props) => {
           <Offcanvas.Title>{project.label}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <ul>
-            {project.places.map((place) => (
-              <li key={place.id}>{place.label}</li>
+          <ListGroup>
+            {project.places.map((
+              place // Accordion ???
+            ) => (
+              <ListGroup.Item key={place.id}>{place.label}</ListGroup.Item>
             ))}
-          </ul>
+          </ListGroup>
         </Offcanvas.Body>
       </Offcanvas>
     </div>
