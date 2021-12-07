@@ -9,6 +9,8 @@ import About from "./pages/About";
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
+//import store from "./app/store"
+//import { Provider } from "react-redux";
 
 class App extends Component {
   state = {
@@ -53,13 +55,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" exact component={ProjectsList} />
-            <Route path="/about" exact component={About} />
-            <Route component={NotFound} />
-          </Switch>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" exact component={ProjectsList} />
+              <Route path="/about" exact component={About} />
+              <Route component={NotFound} />
+            </Switch>
+          </BrowserRouter>
+        
       </div>
     );
     /*if (this.state.project !== Constants.UNDEF_PROJECT)

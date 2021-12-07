@@ -1,43 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
+import axios from "axios";
 
 const Projects = (props) => {
   const [projects, setProjects] = useState([]);
 
-  //const viewProject = props.viewProject;
-
+  
   useEffect(() => {
-    setProjects([
-      {
-        idProject: 1,
-        label: "Project 1",
-        description: "Lorem ipsum bla bla bla",
-        places: [
-          {
-            label: "Localisation 1",
-            id: "loc11"
-          },
-          {
-            label: "Localisation 2",
-            id: "loc12"
-          },
-          {
-            label: "Localisation 3",
-            id: "loc13"
-          }
-        ]
-      },
-      {
-        idProject: 2,
-        label: "Project 2",
-        description: "Lorem ipsum bla bla bla"
-      },
-      {
-        idProject: 3,
-        label: "Project 3",
-        description: "Lorem ipsum bla bla bla"
-      }
-    ]);
+    const getProjects = () => axios.get("https://rqom69p957.execute-api.eu-west-3.amazonaws.com/prod/projects")
+      .then( res => {
+        const allProjects = JSON.parse(res.data.body)
+        setProjects(allProjects)
+      })
+
+      getProjects();
+    
   }, []);
 
   return (
