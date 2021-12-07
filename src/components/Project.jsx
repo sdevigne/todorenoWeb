@@ -23,13 +23,21 @@ const Project = (props) => {
           <Offcanvas.Title>{project.label}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <ListGroup>
-            {project.places.map((
-              place // Accordion ???
-            ) => (
-              <ListGroup.Item key={place.id}>{place.label}</ListGroup.Item>
+          <Accordion>
+            {project.places.map(place  => (
+              <Accordion.Item eventKey={place.id} key={place.id}>
+                <Accordion.Header>{place.label}</Accordion.Header>
+                <Accordion.Body>
+                  <ListGroup>
+                  {place.rooms.map(room => 
+                    <ListGroup.Item action>{room.label}</ListGroup.Item>
+                  )}
+                  </ListGroup>
+                </Accordion.Body>
+              </Accordion.Item>
+              
             ))}
-          </ListGroup>
+          </Accordion>
         </Offcanvas.Body>
       </Offcanvas>
     </div>
