@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import "holderjs";
+import { useSelector, useDispatch } from "react-redux";
+import selectProjectReducer from "../reducers/selectedProject.reducer";
+import { selectProject } from "../actions/selectedProject.action";
 
 const ProjectCard = (props) => {
   const { project, viewProject } = props;
   //const [myProject, setMyProject] = useState(project);
+  //const selectProject = useSelector((state) => state.selectProjectReducer);
+  const dispatch = useDispatch();
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -12,7 +17,7 @@ const ProjectCard = (props) => {
       <Card.Body>
         <Card.Title>{project.label}</Card.Title>
         <Card.Text>{project.description}</Card.Text>
-        <Button variant="primary" onClick={() => viewProject(project)}>
+        <Button variant="primary" onClick={() => dispatch(selectProject(project))}>
           Voir...
         </Button>
         &nbsp;

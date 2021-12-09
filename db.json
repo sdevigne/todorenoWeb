@@ -1,0 +1,156 @@
+{
+    "projects": [
+        {
+            "id": "2",
+            "places": [
+             {
+              "rooms": [
+               {
+                "id": "17",
+                "label": "Coin cuisine"
+               },
+               {
+                "id": "18",
+                "label": "Salon"
+               }
+              ],
+              "id": "3",
+              "label": "Rez de Chaussée"
+             },
+             {
+              "rooms": [
+               {
+                "id": "19",
+                "label": "Salle de bains"
+               },
+               {
+                "id": "20",
+                "label": "Chambre "
+               }
+              ],
+              "id": "4",
+              "label": "Etage"
+             }
+            ],
+            "address": "88 avenue Aristide Briand\n92120 Montrouge",
+            "label": "Duplex Montrouge"
+           },
+           {
+            "id": "1",
+            "places": [
+             {
+              "rooms": [
+               {
+                "id": "1",
+                "label": "Pièce principale avant rénovation"
+               },
+               {
+                "id": "2",
+                "label": "Salle de jeux"
+               },
+               {
+                "id": "3",
+                "label": "Extension / Cuisine"
+               },
+               {
+                "id": "4",
+                "label": "Salle de bains"
+               },
+               {
+                "id": "5",
+                "label": "Extensions / Salle à Manger"
+               },
+               {
+                "id": "6",
+                "label": "Extension / Salon"
+               },
+               {
+                "id": "7",
+                "label": "Entrée / Couloir"
+               },
+               {
+                "id": "8",
+                "label": "Chambre 1"
+               }
+              ],
+              "id": "9",
+              "label": "Rez de Chaussée"
+             },
+             {
+              "rooms": [
+               {
+                "id": "10",
+                "label": "Chambre 4"
+               },
+               {
+                "id": "11",
+                "label": "Palier"
+               },
+               {
+                "id": "12",
+                "label": "WC 2"
+               },
+               {
+                "id": "13",
+                "label": "Chambre 2"
+               },
+               {
+                "id": "14",
+                "label": "Chambre 3"
+               },
+               {
+                "id": "15",
+                "label": "Grenier 1 avant rénovation"
+               },
+               {
+                "id": "16",
+                "label": "Grenier 2 avant rénovation"
+               }
+              ],
+              "id": "2",
+              "label": "Etage"
+             }
+            ],
+            "address": "4 lieu dit La Butte Voyère\n72140 Mont Saint Jean",
+            "label": "La Butte Voyère"
+           }
+    ],
+    "todos" : [
+        {
+            "id": "1",
+            "idProject": "1",
+            "label": "Retirer plancher",
+            "status": "",
+            "category": [
+             {
+              "id": "1"
+             },
+             {
+              "id": "2"
+             }
+            ],
+            "idRoom": "1"
+           },
+           {
+            "id": "2",
+            "idProject": "1",
+            "label": "Lumière plafond",
+            "status": "TODO",
+            "category": [
+             {
+              "id": "1"
+             }
+            ],
+            "idRoom": "1"
+           }
+    ],
+    "users" : [
+        {
+            "id": "1",
+            "login": "sebastien.devigne@gmail.com",
+            "email": "sebastien.devigne@gmail.com",
+            "lastName": "DEVIGNE",
+            "firstName": "SEBASTIEN"
+           }
+    ]
+}

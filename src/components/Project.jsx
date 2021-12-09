@@ -30,7 +30,7 @@ const Project = (props) => {
                 <Accordion.Body>
                   <ListGroup>
                   {place.rooms.map(room => 
-                    <ListGroup.Item action>{room.label}</ListGroup.Item>
+                    <ListGroup.Item action key={room.id}>{room.label}</ListGroup.Item>
                   )}
                   </ListGroup>
                 </Accordion.Body>
