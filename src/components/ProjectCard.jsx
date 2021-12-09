@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import "holderjs";
-import { useSelector, useDispatch } from "react-redux";
-import selectProjectReducer from "../reducers/selectedProject.reducer";
+import { useDispatch } from "react-redux";
 import { selectProject } from "../actions/selectedProject.action";
 
 const ProjectCard = (props) => {
   const { project, viewProject } = props;
-  //const [myProject, setMyProject] = useState(project);
-  //const selectProject = useSelector((state) => state.selectProjectReducer);
   const dispatch = useDispatch();
 
   return (
