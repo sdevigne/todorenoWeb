@@ -16,6 +16,10 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
+
+//localStorage.setItem('TestSDE', 'VALUE Test SDE');
+
+
 store.dispatch(getProjects());
 
 const rootElement = document.getElementById("root");

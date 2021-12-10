@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  
+
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -19,6 +19,9 @@ const Navigation = () => {
           </LinkContainer>
           <LinkContainer to="/about">
             <Nav.Link>A propos</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/logout">
+            <Nav.Link>Deconnexion...</Nav.Link>
           </LinkContainer>
         </Nav>
       </Container>
