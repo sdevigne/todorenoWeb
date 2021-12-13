@@ -15,7 +15,8 @@ import Login from "./pages/Login";
 const App = () => {
   
   //localStorage.setItem("TEST", "CONNECTE");
-  const connected = localStorage.getItem("TEST")
+  const connected = localStorage.getItem("JWT");
+  // TODO : Check JWT
 
   
   return (
