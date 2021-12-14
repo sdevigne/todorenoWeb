@@ -1,8 +1,8 @@
-import { AuthenticationDetails, CognitoUser, CognitoUserPool } from 'amazon-cognito-identity-js';
+import { AuthenticationDetails } from 'amazon-cognito-identity-js';
 import React, { useState } from 'react';
 import { Accordion, Form, Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
-import * as AWS from 'aws-sdk/global';
-import { getUserPool, getCognitoUser, IdentityPoolIdRegion, IdentityPoolId, UserPoolId } from '../components/UserUtils';
+import { getCognitoUser, isLoggedIn, refreshAWSCredentials, saveAWSCredentials } from '../components/UserUtils';
+import { Redirect } from 'react-router';
 
 
 
@@ -45,35 +45,17 @@ const Login = () => {
             Password : loginData.password
         }
         const authenticationDetails = new AuthenticationDetails(authenticationData);
-        const userData = {
-            Username : loginData.email,
-            Pool : getUserPool
-        }
-        const cognitoUser = getCognitoUser(userData);
+        
+        const cognitoUser = getCognitoUser(loginData.email);
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess : function (result) {
                 var accessToken = result.getAccessToken().getJwtToken();
                 console.log(accessToken);
                 
-                AWS.config.region = IdentityPoolIdRegion;
-                AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                    IdentityPoolId : IdentityPoolId,
-                    Logins : {
-                        ['cognito-idp.' + IdentityPoolIdRegion + '.amazonaws.com/' + UserPoolId] : result.getIdToken().getJwtToken()
-                    }
-                });
+                saveAWSCredentials(result.getIdToken().getJwtToken());
 
-                AWS.config.credentials.refresh(error => {
-                    if (error) {
-                        console.error(error);
-                    } else {
-                        // Instantiate aws sdk service objects now that the credentials have been updated.
-                        // example: var s3 = new AWS.S3();
-                        console.log('Successfully logged!');
-                        localStorage.setItem("JWT", result.getIdToken().getJwtToken());
-                        window.location.reload(false);
-                    }
-                });
+                refreshAWSCredentials(loginData.email);
+                
                 //%%%
 
 
@@ -106,11 +88,8 @@ const Login = () => {
      * Registering confirmation
      */
     const confirmSubscription = () => {
-        const userData = {
-            Username : formRegisterData.email,
-            Pool : getUserPool
-        }
-        const cognitoUser = getCognitoUser(userData);
+        
+        const cognitoUser = getCognitoUser(formRegisterData.email);
         cognitoUser.confirmRegistration(validationCode, true, (err, result) => {
                 if (err) {
                     console.log(err);
@@ -124,6 +103,9 @@ const Login = () => {
                 }
             }
         )
+    }
+    if (isLoggedIn()) {
+        return <Redirect to="/"/>
     }
 
     return (

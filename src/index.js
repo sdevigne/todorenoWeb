@@ -9,18 +9,12 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers/index";
-import { getProjects } from "./actions/projects.action";
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-
-//localStorage.setItem('TestSDE', 'VALUE Test SDE');
-
-
-store.dispatch(getProjects());
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(

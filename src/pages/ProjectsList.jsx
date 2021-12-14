@@ -2,12 +2,24 @@ import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import Projects from "../components/Projects";
 import Project from "../components/Project";
-import Constants from "../const";
 import { useSelector } from "react-redux";
 import { isEmpty } from "../components/Utils";
+import { getCurrentUser } from "../components/UserUtils";
+import { useDispatch } from "react-redux";
+import { getProjects } from "../actions/projects.action";
 
 const ProjectsList = () => {
-  //const [project, setProject] = useState(Constants.UNDEF_PROJECT);
+  
+  const currentUser = getCurrentUser();
+
+  /*console.log("TOTOTOTOTO" + currentUser);
+  if (currentUser == null) {
+    return null;
+  }*/
+
+  const dispatch = useDispatch();
+  dispatch(getProjects());
+
 
   const project = useSelector((state) => state.selectedProjectReducer);
   const viewProject = (project) => {
