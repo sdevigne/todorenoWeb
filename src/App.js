@@ -26,7 +26,7 @@ const App = () => {
           alert (err.message || JSON.stringify(err));
           return;
         }
-        console.log('session validity : ' + session.isValid());
+        //console.log('session validity : ' + session.isValid());
         setConnected(session.isValid());
       })
     } else {
