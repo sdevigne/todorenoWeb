@@ -7,6 +7,7 @@ export const getProjects = () => {
     const options = {
         headers : {'x-apikey' : process.env.REACT_APP_RESTDBIO_API}
     }
+    console.log(process.env.REACT_APP_RESTDBIO_API)
 
     return (dispatch) => {
         return axios
