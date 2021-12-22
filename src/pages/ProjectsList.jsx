@@ -7,15 +7,16 @@ import { isEmpty } from "../components/Utils";
 import { getCurrentUser } from "../components/UserUtils";
 import { useDispatch } from "react-redux";
 import { getProjects } from "../actions/projects.action";
+//require('dotenv').config;
+
+
 
 const ProjectsList = () => {
   
   const currentUser = getCurrentUser();
 
-  /*console.log("TOTOTOTOTO" + currentUser);
-  if (currentUser == null) {
-    return null;
-  }*/
+  //console.log(process.env);
+
 
   const dispatch = useDispatch();
   dispatch(getProjects());

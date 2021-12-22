@@ -17,7 +17,6 @@ const App = () => {
   
   const [connected, setConnected] = useState(false);
   const cognitoUser = getCurrentUser();
-  console.log(cognitoUser);
 
   useEffect(() => {
 
